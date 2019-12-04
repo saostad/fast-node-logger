@@ -4,6 +4,14 @@
 
 # Quick Start
 
+```
+import { createLogger, writeLog } from "fast-node-logger";
+
+createLogger().then(() => {
+  writeLog("hi");
+});
+```
+
 ## Other Commands
 
 ## Functionalities
