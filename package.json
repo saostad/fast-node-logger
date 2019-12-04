@@ -4,7 +4,7 @@
   "description": "typescript opinionated starter",
   "repository": {
     "type": "git",
-    "url": "https://github.com/saostad/node-typescript-starter.git"
+    "url": "https://github.com/saostad/fast-node-logger.git"
   },
   "main": "./dist/app.js",
   "scripts": {
