@@ -1,7 +1,7 @@
 {
-  "name": "node-ts-starter",
+  "name": "fast-node-logger",
   "version": "0.1.0",
-  "description": "typescript opinionated starter",
+  "description": "fast node logger",
   "repository": {
     "type": "git",
     "url": "https://github.com/saostad/fast-node-logger.git"
@@ -21,11 +21,12 @@
   },
   "keywords": [
     "node",
-    "typescript",
-    "boilerplate",
-    "starter"
+    "logger",
+    "fast",
+    "rotator",
+    "pino"
   ],
-  "author": "",
+  "author": "Saeid Ostad",
   "license": "MIT",
   "nodemonConfig": {
     "ignore": [
