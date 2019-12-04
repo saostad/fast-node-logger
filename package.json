@@ -1,12 +1,13 @@
 {
   "name": "fast-node-logger",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "fast node logger",
   "repository": {
     "type": "git",
     "url": "https://github.com/saostad/fast-node-logger.git"
   },
-  "main": "./dist/app.js",
+  "main": "dist/app.js",
+  "types": "dist/app.d.ts",
   "scripts": {
     "format": "prettier --check \"src/**/*.ts\" --write",
     "lint": "eslint --ext \".ts,.js\" src --quiet",
