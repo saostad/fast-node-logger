@@ -1,7 +1,26 @@
 import * as fs from "fs";
 import rimraf from "rimraf";
 import * as path from "path";
+import { promisify } from "util";
 import { defaultLogFolder } from "./logger";
+
+export async function checkDirectory(directory: string): Promise<boolean> {
+  const mkdir = promisify(fs.mkdir);
+  const stat = promisify(fs.stat);
+
+  await stat(directory).catch(async err => {
+    if (err && err.errno === -4058) {
+      //Create the directory, call the callback.
+      await mkdir(directory);
+      return true;
+    } else {
+      //just in case there was a different error:
+      console.log(err);
+      return false;
+    }
+  });
+  return true;
+}
 
 interface DeleteOldFileOptions {
   keepMetaFiles?: boolean;
