@@ -1,6 +1,6 @@
 {
   "name": "fast-node-logger",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "fast node logger",
   "repository": {
     "type": "git",
@@ -39,7 +39,6 @@
   "devDependencies": {
     "@types/jest": "^24.0.24",
     "@types/node": "^12.12.22",
-    "@types/pino": "^5.15.1",
     "@types/rimraf": "^2.0.3",
     "@typescript-eslint/eslint-plugin": "^2.13.0",
     "@typescript-eslint/parser": "^2.13.0",
@@ -55,6 +54,7 @@
     "typescript": "^3.7.4"
   },
   "dependencies": {
+    "@types/pino": "^5.15.1",
     "pino": "^5.15.0",
     "rimraf": "^3.0.0"
   }
