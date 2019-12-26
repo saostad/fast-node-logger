@@ -6,7 +6,8 @@ export const defaultLogFolder = path.join("logs");
 
 let logFileStream: pino.Logger | undefined;
 
-export async function createLogger() {
+/** @returns a previously instantiated instance of Pino that logs to an automatically generated file in logs folder in root directory */
+export async function createLogger(): Promise<pino.Logger> {
   const fileName = `${new Date().getTime()}.log`;
   const filePath = path.join(defaultLogFolder, fileName);
 
@@ -22,6 +23,7 @@ export async function createLogger() {
 
   const dest = pino.destination(filePath);
   logFileStream = pino(dest);
+  return logFileStream;
 }
 
 /** get logs and if log file exist, write it to file and console.log it */

@@ -1,6 +1,6 @@
 {
   "name": "fast-node-logger",
-  "version": "0.1.5",
+  "version": "1.0.0",
   "description": "fast node logger",
   "repository": {
     "type": "git",
@@ -37,25 +37,25 @@
     "delay": "1000"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.23",
-    "@types/node": "^12.12.14",
-    "@types/pino": "^5.8.13",
+    "@types/jest": "^24.0.24",
+    "@types/node": "^12.12.22",
+    "@types/pino": "^5.15.1",
     "@types/rimraf": "^2.0.3",
-    "@typescript-eslint/eslint-plugin": "^2.10.0",
-    "@typescript-eslint/parser": "^2.10.0",
+    "@typescript-eslint/eslint-plugin": "^2.13.0",
+    "@typescript-eslint/parser": "^2.13.0",
     "dotenv": "^8.2.0",
-    "eslint": "^6.7.2",
-    "eslint-config-prettier": "^6.7.0",
-    "eslint-plugin-prettier": "^3.1.1",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.8.0",
+    "eslint-plugin-prettier": "^3.1.2",
     "jest": "^24.9.0",
-    "nodemon": "^2.0.1",
+    "nodemon": "^2.0.2",
     "prettier": "^1.19.1",
     "ts-jest": "^24.2.0",
     "ts-node": "^8.5.4",
-    "typescript": "^3.7.3"
+    "typescript": "^3.7.4"
   },
   "dependencies": {
-    "pino": "^5.14.0",
+    "pino": "^5.15.0",
     "rimraf": "^3.0.0"
   }
 }
