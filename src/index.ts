@@ -5,21 +5,27 @@ import { defaultLogFolder } from "./helpers/variables";
 
 let logFileStream: pino.Logger | undefined;
 
-/** @returns a previously instantiated instance of Pino that logs to an automatically generated file in logs folder in root directory */
-export async function createLogger(): Promise<pino.Logger> {
-  const fileName = `${new Date().getTime()}.log`;
+export interface Options {
+  logDir?: string;
+  retentionTime?: number;
+}
 
-  const filePath = path.join(defaultLogFolder, fileName);
+/** @returns a previously instantiated instance of Pino that logs to an automatically generated file in logs folder in root directory */
+export async function createLogger(options?: Options): Promise<pino.Logger> {
+  const fileName = `${new Date().getTime()}.log`;
+  const dirPath = options?.logDir ?? defaultLogFolder;
+  const filePath = path.join(dirPath, fileName);
 
   /** make sure logs folder exist */
-  await createDirectoryIfNotExist(defaultLogFolder).catch(function() {
+  await createDirectoryIfNotExist(dirPath).catch(function() {
     throw new Error("Logs Folder not Exist");
   });
 
   deleteOldFiles({
+    dirPath,
     options: {
       keepMetaFiles: true,
-      keepAliveTime: 604800 /** 7 days in seconds */,
+      keepAliveTime: options?.retentionTime ?? 604800 /** 7 days in seconds */,
     },
   });
 
