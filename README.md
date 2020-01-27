@@ -4,7 +4,7 @@ this package does:
 
 - create an instance of pino logger
 - create a new file in `logs` folder of root directory.
-- delete all old log files
+- delete old log files
 
 ## Notice:
 
@@ -12,10 +12,20 @@ this is very opinionated package that limit the flexibility of awesome [pino](ht
 
 ## Quick Start
 
-```
+```js
 import { createLogger, writeLog } from "fast-node-logger";
 
 createLogger().then(() => {
   writeLog("hi");
 });
+```
+
+## Customization
+
+```js
+const options: Options = {
+  logDir: "./logs",
+  retentionTime: 30000,
+};
+await createLogger(options);
 ```
