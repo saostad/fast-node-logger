@@ -1,5 +1,3 @@
-export * from "./lib/logger";
-
 /** How to use it:  */
 // import dotenv from "dotenv";
 // import { writeLog, createLogger } from "./lib/logger";

@@ -1,28 +1,34 @@
 import * as path from "path";
-import { deleteOldFiles, checkDirectory } from "./utils";
+import { deleteOldFiles, createDirectoryIfNotExist } from "./helpers/utils";
 import pino from "pino";
-
-export const defaultLogFolder = path.join("logs");
+import { defaultLogFolder } from "./helpers/variables";
 
 let logFileStream: pino.Logger | undefined;
 
 /** @returns a previously instantiated instance of Pino that logs to an automatically generated file in logs folder in root directory */
 export async function createLogger(): Promise<pino.Logger> {
   const fileName = `${new Date().getTime()}.log`;
+
   const filePath = path.join(defaultLogFolder, fileName);
 
   /** make sure logs folder exist */
-  const logFolderExist = await checkDirectory(defaultLogFolder);
-  if (!logFolderExist) {
+  await createDirectoryIfNotExist(defaultLogFolder).catch(function() {
     throw new Error("Logs Folder not Exist");
-  }
+  });
 
-  deleteOldFiles({ options: { keepMetaFiles: true, keepAliveTime: 60 } });
+  deleteOldFiles({
+    options: {
+      keepMetaFiles: true,
+      keepAliveTime: 604800 /** 7 days in seconds */,
+    },
+  });
 
   console.log(`Logging to file: ${filePath}`);
 
   const dest = pino.destination(filePath);
+
   logFileStream = pino(dest);
+
   return logFileStream;
 }
 

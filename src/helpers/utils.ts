@@ -2,9 +2,11 @@ import * as fs from "fs";
 import rimraf from "rimraf";
 import * as path from "path";
 import { promisify } from "util";
-import { defaultLogFolder } from "./logger";
+import { defaultLogFolder } from "./variables";
 
-export async function checkDirectory(directory: string): Promise<boolean> {
+export async function createDirectoryIfNotExist(
+  directory: string,
+): Promise<boolean> {
   const mkdir = promisify(fs.mkdir);
   const stat = promisify(fs.stat);
 
@@ -24,6 +26,7 @@ export async function checkDirectory(directory: string): Promise<boolean> {
 
 interface DeleteOldFileOptions {
   keepMetaFiles?: boolean;
+  /**Number of Seconds */
   keepAliveTime?: number;
 }
 
@@ -34,10 +37,10 @@ interface DeleteOldFilesFn {
 
 export const deleteOldFiles = ({ dirPath, options }: DeleteOldFilesFn) => {
   try {
-    const pathToDelete = dirPath ? dirPath : defaultLogFolder;
-    const keepAliveTime =
-      options && options.keepAliveTime ? options.keepAliveTime : 180000;
-    // eslint-disable-next-line no-console
+    const pathToDelete = dirPath ?? defaultLogFolder;
+
+    const keepAliveTime = options?.keepAliveTime ?? 180000;
+
     console.log(`deleting old files from folder: ${pathToDelete}`);
     fs.readdir(pathToDelete, (err1, files) => {
       if (!err1) {
@@ -55,7 +58,9 @@ export const deleteOldFiles = ({ dirPath, options }: DeleteOldFilesFn) => {
               const endTime = new Date(stat.ctime).getTime() + keepAliveTime;
 
               if (now > endTime) {
-                rimraf(path.join(pathToDelete, file), () => {});
+                rimraf(path.join(pathToDelete, file), () => {
+                  null;
+                });
               }
             }
           });
@@ -63,7 +68,6 @@ export const deleteOldFiles = ({ dirPath, options }: DeleteOldFilesFn) => {
       }
     });
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error(error);
   }
 };
