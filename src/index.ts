@@ -2,12 +2,19 @@ import * as path from "path";
 import { deleteOldFiles, createDirectoryIfNotExist } from "./helpers/utils";
 import pino from "pino";
 import { defaultLogFolder } from "./helpers/variables";
+import pinoms from "pino-multi-stream";
 
+/** instance for logging to file */
 let logFileStream: pino.Logger | undefined;
 
-export interface Options {
+/**instance for log to console */
+let logToConsole: pino.Logger | undefined;
+
+export interface Options extends pino.LoggerOptions {
   logDir?: string;
   retentionTime?: number;
+  /**prettify config for console output */
+  prettyPrint?: pino.PrettyOptions;
 }
 
 /** @returns a previously instantiated instance of Pino that logs to an automatically generated file in logs folder in root directory */
@@ -29,11 +36,24 @@ export async function createLogger(options?: Options): Promise<pino.Logger> {
     },
   });
 
-  console.log(`Logging to file: ${filePath}`);
-
   const dest = pino.destination(filePath);
 
-  logFileStream = pino(dest);
+  logToConsole = pino({
+    ...options,
+  });
+
+  logToConsole.info(`Logging to file: ${filePath}`);
+
+  logFileStream = pino(
+    { ...options, prettyPrint: { colorize: false } } ?? {},
+    dest,
+  );
+
+  // const logger = pinoms({
+  //   streams:[
+  //     {level: "debug", stream:logToConsole}
+  //   ]
+  // })
 
   return logFileStream;
 }
@@ -44,7 +64,7 @@ export function writeLog(message: any, config = { stdout: false }) {
     logFileStream.info(message);
 
     if (config.stdout) {
-      console.log(message);
+      logToConsole?.info(message);
     }
   } else {
     console.log(message);

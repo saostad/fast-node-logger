@@ -41,8 +41,15 @@ logger.info(`Logger is Ready!`);
 
 ### writeLog(message, {stdout: false})
 
-a shortcut for `logger.info(message)` with ability to additionally `console.log(message)` with second parameter `{stdout: true}`
+a shortcut for `logger.info(message)` with ability to additionally print to console with second parameter `{stdout: true}`
 
-## TODO:
+### use pino original options
 
-- add pino options in createLogger options for more flexibility
+```js
+const options: Options = {
+  level: "debug",
+};
+const logger = await createLogger(options);
+```
+
+use [Pino Docs](https://github.com/pinojs/pino/blob/master/docs/api.md#options) for reference.

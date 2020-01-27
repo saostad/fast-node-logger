@@ -5,12 +5,13 @@ dotenv.config();
 
 export async function main() {
   const options: Options = {
-    logDir: "./logs",
-    retentionTime: 30000,
+    level: "trace",
+    prettyPrint: { colorize: true, translateTime: "SYS:standard" },
   };
-  await createLogger(options);
+  const logger = await createLogger(options);
   writeLog(`logger is created!`, { stdout: true });
-  console.log(`here is my secret: ${process.env.MY_SECRET}`);
+  logger.debug("debug log");
+  logger.info(`here is my secret: ${process.env.MY_SECRET}`);
   return process.env.MY_SECRET;
 }
 
