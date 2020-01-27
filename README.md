@@ -1,8 +1,8 @@
-### A very fast logger and rotation to file based on [pino](https://www.npmjs.com/package/pino).
+### A very opinionated file logger and rotation, base on [pino](https://www.npmjs.com/package/pino).
 
 this package does:
 
-- create an instance of pino logger
+- create an instance of [pino](https://www.npmjs.com/package/pino) logger
 - create a new file in `logs` folder of root directory.
 - delete old log files
 
@@ -25,7 +25,24 @@ createLogger().then(() => {
 ```js
 const options: Options = {
   logDir: "./logs",
-  retentionTime: 30000,
+  retentionTime: 604800, // for 7 days
 };
 await createLogger(options);
 ```
+
+### CreateLogger(options)
+
+returns an instance of pino
+
+```js
+const logger = await createLogger();
+logger.info(`Logger is Ready!`);
+```
+
+### writeLog(message, {stdout: false})
+
+a shortcut for `logger.info(message)` with ability to additionally `console.log(message)` with second parameter `{stdout: true}`
+
+## TODO:
+
+- add pino options in createLogger options for more flexibility
