@@ -1,8 +1,8 @@
-import * as path from "path";
-import { deleteOldFiles, createDirectoryIfNotExist } from "./helpers/utils";
 import pino from "pino";
+import path from "path";
+
+import { deleteOldFiles, createDirectoryIfNotExist } from "./helpers/utils";
 import { defaultLogFolder } from "./helpers/variables";
-import pinoms from "pino-multi-stream";
 
 /** instance for logging to file */
 let logFileStream: pino.Logger | undefined;
@@ -42,23 +42,16 @@ export async function createLogger(options?: Options): Promise<pino.Logger> {
     ...options,
   });
 
-  logToConsole.info(`Logging to file: ${filePath}`);
-
   logFileStream = pino(
     { ...options, prettyPrint: { colorize: false } } ?? {},
     dest,
   );
 
-  // const logger = pinoms({
-  //   streams:[
-  //     {level: "debug", stream:logToConsole}
-  //   ]
-  // })
-
+  logToConsole.info(`Logging to file: ${filePath}`);
   return logFileStream;
 }
 
-/** get logs and if log file exist, write it to file and console.log it */
+/** write message to both file and/or console */
 export function writeLog(message: any, config = { stdout: false }) {
   if (logFileStream) {
     logFileStream.info(message);
