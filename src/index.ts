@@ -51,13 +51,21 @@ export async function createLogger(options?: Options): Promise<pino.Logger> {
   return logFileStream;
 }
 
+interface WriteLogOptions {
+  stdout: boolean;
+  level: pino.Level;
+}
+
 /** write message to both file and/or console */
-export function writeLog(message: any, config = { stdout: false }) {
+export function writeLog(
+  message: any,
+  config: WriteLogOptions = { stdout: false, level: "info" },
+) {
   if (logFileStream) {
     logFileStream.info(message);
 
     if (config.stdout) {
-      logToConsole?.info(message);
+      logToConsole?.[config.level](message);
     }
   } else {
     console.log(message);
