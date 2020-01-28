@@ -66,7 +66,7 @@ import { writeLog, createLogger, Options } from "fast-node-logger";
 
 await createLogger();
 
-writeLog(`logger is created!`, { stdout: true });
+writeLog(`logger is created!`, { stdout: true, level: "trace" });
 ```
 
 ### TODO:
