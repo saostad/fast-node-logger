@@ -68,3 +68,7 @@ await createLogger();
 
 writeLog(`logger is created!`, { stdout: true });
 ```
+
+### TODO:
+
+- [ ] add [recommended log rotation](https://github.com/pinojs/pino/blob/master/docs/help.md#log-rotation)
