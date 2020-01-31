@@ -72,4 +72,4 @@ writeLog(`logger is created!`, { stdout: true, level: "trace" });
 ### TODO:
 
 - [ ] add [recommended log rotation](https://github.com/pinojs/pino/blob/master/docs/help.md#log-rotation)
-- [ ] add ability to integrate with cloud log services (e.g. [sentry](https://sentry.io))
+- [ ] add ability to integrate with cloud log services (e.g. [sentry](https://sentry.io)) with [transports](https://github.com/pinojs/pino/blob/master/docs/transports.md)
