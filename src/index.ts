@@ -10,10 +10,15 @@ let logFileStream: pino.Logger | undefined;
 /**instance for log to console */
 let logToConsole: pino.Logger | undefined;
 
+const defaultRetentionTime = 604800 /** 7 days in seconds */;
+const defaultLogLevel = "info";
+
 export interface Options extends pino.LoggerOptions {
+  /** location of log files */
   logDir?: string;
+  /** number of seconds - default 604800 for 7 days */
   retentionTime?: number;
-  /**prettify config for console output */
+  /** prettify config for console output */
   prettyPrint?: pino.PrettyOptions;
 }
 
@@ -32,7 +37,7 @@ export async function createLogger(options?: Options): Promise<pino.Logger> {
     dirPath,
     options: {
       keepMetaFiles: true,
-      keepAliveTime: options?.retentionTime ?? 604800 /** 7 days in seconds */,
+      keepAliveTime: options?.retentionTime ?? defaultRetentionTime,
     },
   });
 
@@ -59,13 +64,13 @@ interface WriteLogOptions {
 /** write message to both file and/or console */
 export function writeLog(
   message: any,
-  config: WriteLogOptions = { stdout: false, level: "info" },
+  config: WriteLogOptions = { stdout: false, level: defaultLogLevel },
 ) {
   if (logFileStream) {
-    logFileStream.info(message);
+    logFileStream[config.level ?? defaultLogLevel](message);
 
     if (config.stdout) {
-      logToConsole?.[config.level ?? "info"](message);
+      logToConsole?.[config.level ?? defaultLogLevel](message);
     }
   } else {
     console.log(message);
