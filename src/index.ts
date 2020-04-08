@@ -10,7 +10,7 @@ let logFileStream: pino.Logger | undefined;
 /**instance for log to console */
 let logToConsole: pino.Logger | undefined;
 
-const defaultRetentionTime = 604800 /** 7 days in seconds */;
+const defaultRetentionTime = 604800; /** 7 days in seconds */
 const defaultLogLevel = "info";
 
 export interface Options extends pino.LoggerOptions {
@@ -29,7 +29,7 @@ export async function createLogger(options?: Options): Promise<pino.Logger> {
   const filePath = path.join(dirPath, fileName);
 
   /** make sure logs folder exist */
-  await createDirectoryIfNotExist(dirPath).catch(function() {
+  await createDirectoryIfNotExist(dirPath).catch(function () {
     throw new Error("Logs Folder not Exist");
   });
 
@@ -73,6 +73,14 @@ export function writeLog(
       logToConsole?.[config.level ?? defaultLogLevel](message);
     }
   } else {
-    console.log(message);
+    /** fallback to console.log
+     * if:
+     *   - config provided
+     *   - && log level is "info" || "fatal" || "warn" || "error"
+     * else: do nothing
+     */
+    if (config && config?.level === ("info" || "fatal" || "warn" || "error")) {
+      console.log(message);
+    }
   }
 }
