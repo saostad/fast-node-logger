@@ -4,11 +4,13 @@ import path from "path";
 import { deleteOldFiles, createDirectoryIfNotExist } from "./helpers/utils";
 import { defaultLogFolder } from "./helpers/variables";
 
+export type Logger = pino.Logger;
+
 /** instance for logging to file */
-let logFileStream: pino.Logger | undefined;
+export let logToFile: Logger | undefined;
 
 /**instance for log to console */
-let logToConsole: pino.Logger | undefined;
+let logToConsole: Logger | undefined;
 
 const defaultRetentionTime = 604800; /** 7 days in seconds */
 const defaultLogLevel = "info";
@@ -23,7 +25,7 @@ export interface Options extends pino.LoggerOptions {
 }
 
 /** @returns a previously instantiated instance of Pino that logs to an automatically generated file in logs folder in root directory */
-export async function createLogger(options?: Options): Promise<pino.Logger> {
+export async function createLogger(options?: Options): Promise<Logger> {
   const fileName = `${new Date().getTime()}.log`;
   const dirPath = options?.logDir ?? defaultLogFolder;
   const filePath = path.join(dirPath, fileName);
@@ -47,13 +49,13 @@ export async function createLogger(options?: Options): Promise<pino.Logger> {
     ...options,
   });
 
-  logFileStream = pino(
+  logToFile = pino(
     { ...options, prettyPrint: { colorize: false } } ?? {},
     dest,
   );
 
   logToConsole.info(`Logging to file: ${filePath}`);
-  return logFileStream;
+  return logToFile;
 }
 
 interface WriteLogOptions {
@@ -66,8 +68,8 @@ export function writeLog(
   message: any,
   config: WriteLogOptions = { stdout: false, level: defaultLogLevel },
 ) {
-  if (logFileStream) {
-    logFileStream[config.level ?? defaultLogLevel](message);
+  if (logToFile) {
+    logToFile[config.level ?? defaultLogLevel](message);
 
     if (config.stdout) {
       logToConsole?.[config.level ?? defaultLogLevel](message);
