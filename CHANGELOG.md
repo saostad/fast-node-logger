@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v1.4.4](https://github.com/saostad/fast-node-logger/compare/v1.4.3...v1.4.4)
+
+> 10 July 2020
+
+- doc: docs wesite added to readme [`e614165`](https://github.com/saostad/fast-node-logger/commit/e614165111f10068c849a0f621dcf51c0565c24d)
+- doc: change log [`48bdb5f`](https://github.com/saostad/fast-node-logger/commit/48bdb5fcef819d7f5fce64d6a83467be0c24415f)
+
 #### v1.4.3
 
 > 10 July 2020
