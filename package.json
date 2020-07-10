@@ -1,7 +1,7 @@
 {
   "name": "fast-node-logger",
   "version": "1.4.3",
-  "description": "fast node logger base on pino",
+  "description": "fast file logger base on pino",
   "repository": {
     "type": "git",
     "url": "https://github.com/saostad/fast-node-logger.git"
