@@ -1,2 +1,9 @@
-src
-dist/app.*
+.npmrc
+.env
+*.log
+docs
+generated
+/src/**/*.*
+dist/app.js
+dist/app.js.map
+dist/app.d.ts

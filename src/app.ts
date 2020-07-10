@@ -8,7 +8,9 @@ export async function main() {
     level: "trace",
     prettyPrint: { colorize: true, translateTime: "SYS:standard" },
   };
+
   const logger = await createLogger(options);
+
   writeLog(`logger is created!`, { stdout: true, level: "info" });
   logger.debug("debug log");
   logToFile?.info(`here is my secret: ${process.env.MY_SECRET}`);
