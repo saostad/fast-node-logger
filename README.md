@@ -32,6 +32,10 @@ const options: Options = {
 await createLogger(options);
 ```
 
+### Documentations
+
+[Documentations website](https://saostad.github.io/fast-node-logger/)
+
 ### use pino original options [Pino Docs](https://github.com/pinojs/pino/blob/master/docs/api.md#options)
 
 ```js
