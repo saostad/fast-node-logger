@@ -1,6 +1,6 @@
 {
   "name": "fast-node-logger",
-  "version": "1.4.6",
+  "version": "1.4.7",
   "description": "fast file logger base on pino",
   "repository": {
     "type": "git",
@@ -43,29 +43,29 @@
     "delay": "1000"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.13",
-    "@types/node": "^14.6.3",
+    "@types/jest": "^26.0.14",
+    "@types/node": "^14.10.3",
     "@types/rimraf": "^3.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.0.1",
-    "@typescript-eslint/parser": "^4.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.1.1",
+    "@typescript-eslint/parser": "^4.1.1",
     "auto-changelog": "^2.2.0",
     "dotenv": "^8.2.0",
-    "eslint": "^7.8.1",
+    "eslint": "^7.9.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "jest": "^26.4.2",
     "nodemon": "^2.0.4",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.1.1",
+    "prettier": "^2.1.2",
     "ts-jest": "^26.3.0",
     "ts-node": "^9.0.0",
-    "typedoc": "^0.19.0",
+    "typedoc": "^0.19.1",
     "typescript": "^4.0.2"
   },
   "dependencies": {
     "@types/pino": "^6.3.0",
-    "pino": "^6.5.1",
-    "pino-pretty": "^4.2.0",
+    "pino": "^6.6.1",
+    "pino-pretty": "^4.2.1",
     "rimraf": "^3.0.2"
   }
 }
