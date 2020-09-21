@@ -1,6 +1,6 @@
 {
   "name": "fast-node-logger",
-  "version": "1.4.7",
+  "version": "1.4.8",
   "description": "fast file logger base on pino",
   "repository": {
     "type": "git",
@@ -44,11 +44,11 @@
   },
   "devDependencies": {
     "@types/jest": "^26.0.14",
-    "@types/node": "^14.10.3",
+    "@types/node": "^14.11.1",
     "@types/rimraf": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^4.1.1",
     "@typescript-eslint/parser": "^4.1.1",
-    "auto-changelog": "^2.2.0",
+    "auto-changelog": "^2.2.1",
     "dotenv": "^8.2.0",
     "eslint": "^7.9.0",
     "eslint-config-prettier": "^6.11.0",
@@ -57,10 +57,10 @@
     "nodemon": "^2.0.4",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.1.2",
-    "ts-jest": "^26.3.0",
+    "ts-jest": "^26.4.0",
     "ts-node": "^9.0.0",
-    "typedoc": "^0.19.1",
-    "typescript": "^4.0.2"
+    "typedoc": "^0.19.2",
+    "typescript": "^4.0.3"
   },
   "dependencies": {
     "@types/pino": "^6.3.0",
