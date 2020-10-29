@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v1.4.9](https://github.com/saostad/fast-node-logger/compare/v1.4.8...v1.4.9)
+
+> 29 October 2020
+
+- package: updated [`48e65cb`](https://github.com/saostad/fast-node-logger/commit/48e65cb7c257ad9ddbc54cc3cf4e02770a28dc91)
+- doc: change log [`ba09524`](https://github.com/saostad/fast-node-logger/commit/ba09524833af92a65bb4e1fbcff4e1cd9e280c27)
+
 #### [v1.4.8](https://github.com/saostad/fast-node-logger/compare/v1.4.7...v1.4.8)
 
 > 21 September 2020
