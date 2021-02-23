@@ -284,7 +284,7 @@
 					<div class="tsd-signature tsd-kind-icon">log<wbr>Dir<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/saostad/fast-node-logger/blob/a9ebc61/src/index.ts#L20">src/index.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/saostad/fast-node-logger/blob/94c9005/src/index.ts#L20">src/index.ts:20</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -376,7 +376,7 @@
 					<div class="tsd-signature tsd-kind-icon">pretty<wbr>Print<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">PrettyOptions</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/saostad/fast-node-logger/blob/a9ebc61/src/index.ts#L24">src/index.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/saostad/fast-node-logger/blob/94c9005/src/index.ts#L24">src/index.ts:24</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -412,7 +412,7 @@
 					<div class="tsd-signature tsd-kind-icon">retention<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/saostad/fast-node-logger/blob/a9ebc61/src/index.ts#L22">src/index.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/saostad/fast-node-logger/blob/94c9005/src/index.ts#L22">src/index.ts:22</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -509,9 +509,36 @@
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-external">
 					<a name="onterminated" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> on<wbr>Terminated</h3>
-					<div class="tsd-signature tsd-kind-icon">on<wbr>Terminated<span class="tsd-signature-symbol">:</span></div>
-					<aside class="tsd-sources">
-					</aside>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Terminated<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, err<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in node_modules/@types/pino/index.d.ts:340</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>This function will be invoked during process shutdown when <code>extreme</code> is set to <code>true</code>. If you do not specify
+										a function, Pino will invoke <code>process.exit(0)</code> when no error has occurred, and <code>process.exit(1)</code> otherwise.
+										If you do specify a function, it is up to you to terminate the process; you must perform only synchronous
+									operations at this point. See <a href="http://getpino.io/#/docs/extreme">http://getpino.io/#/docs/extreme</a> for more detail.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>err: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
