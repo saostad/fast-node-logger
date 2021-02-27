@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v1.4.12](https://github.com/saostad/fast-node-logger/compare/v1.4.11...v1.4.12)
+
+> 26 February 2021
+
+- fix: bug in default retention time calculation [`577f2da`](https://github.com/saostad/fast-node-logger/commit/577f2da0634e37f9773febddbfe06ee18ee2454f)
+- doc: change log [`69efff8`](https://github.com/saostad/fast-node-logger/commit/69efff84e3c49a2eae296dae116ac2b01ebdb774)
+
 #### [v1.4.11](https://github.com/saostad/fast-node-logger/compare/v1.4.10...v1.4.11)
 
 > 23 February 2021
