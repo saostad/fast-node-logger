@@ -12,13 +12,13 @@ export let logToFile: Logger | undefined;
 /**instance for log to console */
 let logToConsole: Logger | undefined;
 
-const defaultRetentionTime = 604800; /** 7 days in seconds */
+const defaultRetentionTime = 604800000; /** 7 days in milliseconds */
 const defaultLogLevel = "info";
 
 export interface Options extends pino.LoggerOptions {
   /** location of log files */
   logDir?: string;
-  /** number of seconds - default 604800 for 7 days */
+  /** number of milliseconds - default 604800000 for 7 days */
   retentionTime?: number;
   /** prettify config for console output */
   prettyPrint?: pino.PrettyOptions;
@@ -67,7 +67,7 @@ interface WriteLogOptions {
 export function writeLog(
   message: any,
   config: WriteLogOptions = { stdout: false, level: defaultLogLevel },
-) {
+): void {
   if (logToFile) {
     logToFile[config.level ?? defaultLogLevel](message);
 
