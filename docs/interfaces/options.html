@@ -270,16 +270,6 @@
 									</li>
 									<li class="tsd-parameter">
 										<h5>send<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>level<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Level</span>, logEvent<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">LogEvent</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
-										<div class="tsd-comment tsd-typography">
-											<div class="lead">
-												<p>Remotely record log messages.</p>
-											</div>
-											<dl class="tsd-comment-tags">
-												<dt>description</dt>
-												<dd><p>Called after writing the log message.</p>
-												</dd>
-											</dl>
-										</div>
 										<ul class="tsd-parameters">
 											<li class="tsd-parameter-signature">
 												<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
@@ -287,6 +277,11 @@
 												</ul>
 												<ul class="tsd-descriptions">
 													<li class="tsd-description">
+														<div class="tsd-comment tsd-typography">
+															<div class="lead">
+																<p>Remotely record log messages.</p>
+															</div>
+														</div>
 														<h4 class="tsd-parameters-title">Parameters</h4>
 														<ul class="tsd-parameters">
 															<li>
@@ -423,14 +418,6 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter">
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> bindings<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">(</span>bindings<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Bindings</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">object</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<div class="lead">
-										<p>Changes the shape of the bindings.
-											The default shape is { pid, hostname }.
-											The function takes a single argument, the bindings object.
-										It will be called every time a child logger is created.</p>
-									</div>
-								</div>
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-signature">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
@@ -438,6 +425,14 @@
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
+												<div class="tsd-comment tsd-typography">
+													<div class="lead">
+														<p>Changes the shape of the bindings.
+															The default shape is { pid, hostname }.
+															The function takes a single argument, the bindings object.
+														It will be called every time a child logger is created.</p>
+													</div>
+												</div>
 												<h4 class="tsd-parameters-title">Parameters</h4>
 												<ul class="tsd-parameters">
 													<li>
@@ -452,13 +447,6 @@
 							</li>
 							<li class="tsd-parameter">
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> level<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">(</span>label<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, number<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">object</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<div class="lead">
-										<p>Changes the shape of the log level.
-											The default shape is { level: number }.
-										The function takes two arguments, the label of the level (e.g. &#39;info&#39;) and the numeric value (e.g. 30).</p>
-									</div>
-								</div>
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-signature">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
@@ -466,6 +454,13 @@
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
+												<div class="tsd-comment tsd-typography">
+													<div class="lead">
+														<p>Changes the shape of the log level.
+															The default shape is { level: number }.
+														The function takes two arguments, the label of the level (e.g. &#39;info&#39;) and the numeric value (e.g. 30).</p>
+													</div>
+												</div>
 												<h4 class="tsd-parameters-title">Parameters</h4>
 												<ul class="tsd-parameters">
 													<li>
@@ -483,14 +478,6 @@
 							</li>
 							<li class="tsd-parameter">
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> log<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">(</span>object<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">object</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<div class="lead">
-										<p>Changes the shape of the log object.
-											This function will be called every time one of the log methods (such as .info) is called.
-											All arguments passed to the log method, except the message, will be pass to this function.
-										By default it does not change the shape of the log object.</p>
-									</div>
-								</div>
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-signature">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
@@ -498,6 +485,14 @@
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
+												<div class="tsd-comment tsd-typography">
+													<div class="lead">
+														<p>Changes the shape of the log object.
+															This function will be called every time one of the log methods (such as .info) is called.
+															All arguments passed to the log method, except the message, will be pass to this function.
+														By default it does not change the shape of the log object.</p>
+													</div>
+												</div>
 												<h4 class="tsd-parameters-title">Parameters</h4>
 												<ul class="tsd-parameters">
 													<li>
@@ -534,14 +529,6 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter">
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> log<wbr>Method<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">(</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span>, method<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">LogFn</span>, level<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<div class="lead">
-										<p>Allows for manipulating the parameters passed to logger methods. The signature for this hook is
-											logMethod (args, method, level) {}, where args is an array of the arguments that were passed to the
-											log method and method is the log method itself, and level is the log level. This hook must invoke the method function by
-										using apply, like so: method.apply(this, newArgumentsArray).</p>
-									</div>
-								</div>
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-signature">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
@@ -549,6 +536,14 @@
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
+												<div class="tsd-comment tsd-typography">
+													<div class="lead">
+														<p>Allows for manipulating the parameters passed to logger methods. The signature for this hook is
+															logMethod (args, method, level) {}, where args is an array of the arguments that were passed to the
+															log method and method is the log method itself, and level is the log level. This hook must invoke the method function by
+														using apply, like so: method.apply(this, newArgumentsArray).</p>
+													</div>
+												</div>
 												<h4 class="tsd-parameters-title">Parameters</h4>
 												<ul class="tsd-parameters">
 													<li>
@@ -625,7 +620,7 @@
 					<div class="tsd-signature tsd-kind-icon">log<wbr>Dir<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/saostad/fast-node-logger/blob/32f6db5/src/index.ts#L20">src/index.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/saostad/fast-node-logger/blob/30bdef6/src/index.ts#L20">src/index.ts:20</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -723,7 +718,7 @@
 					<aside class="tsd-sources">
 						<p>Overrides pino.LoggerOptions.prettyPrint</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/saostad/fast-node-logger/blob/32f6db5/src/index.ts#L24">src/index.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/saostad/fast-node-logger/blob/30bdef6/src/index.ts#L24">src/index.ts:24</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -760,7 +755,7 @@
 					<div class="tsd-signature tsd-kind-icon">retention<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/saostad/fast-node-logger/blob/32f6db5/src/index.ts#L22">src/index.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/saostad/fast-node-logger/blob/30bdef6/src/index.ts#L22">src/index.ts:22</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
