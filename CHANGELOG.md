@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+### [v2.0.0](https://github.com/saostad/fast-node-logger/compare/v1.4.13...v2.0.0)
+
+> 24 June 2021
+
+- pkg: bumped pino-pretty to v5 [`0f81b10`](https://github.com/saostad/fast-node-logger/commit/0f81b105488e03ced4970b9f22f81f92a7ee0a18)
+- doc: change log [`30bdef6`](https://github.com/saostad/fast-node-logger/commit/30bdef607c13d831f5b11fb549133059eaa8029b)
+
 #### [v1.4.13](https://github.com/saostad/fast-node-logger/compare/v1.4.12...v1.4.13)
 
 > 27 April 2021
