@@ -45,32 +45,24 @@ export async function createLogger(options?: Options): Promise<Logger> {
 
   const dest = pino.destination(filePath);
 
-  dest.on("ready", () => {
-    console.log(`File: index.ts,`, `Line: 49 => `, `sonic is ready`);
-
-    logToFile = pino(
-      {
-        ...options,
-        transport: {
-          target: "pino-pretty",
-          options: {
-            colorize: true,
-          },
-        },
-      } ?? {},
-      dest,
-    );
-    logToConsole = pino({
+  logToFile = pino(
+    {
       ...options,
-    });
-
-    logToConsole.info(`Logging to file: ${filePath}`);
+      transport: {
+        target: "pino-pretty",
+        options: {
+          colorize: true,
+        },
+      },
+    } ?? {},
+    dest,
+  );
+  logToConsole = pino({
+    ...options,
   });
 
-  if (logToFile) {
-    return logToFile;
-  }
-  throw new Error("fffff");
+  logToConsole.info(`Logging to file: ${filePath}`);
+  return logToFile;
 }
 
 interface WriteLogOptions {

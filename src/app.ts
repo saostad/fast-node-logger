@@ -1,11 +1,11 @@
-// import { writeLog, createLogger } from "./index";
+import { writeLog, createLogger } from "./index";
 
-// createLogger().then((logger) => {
-//   logger.info(`test`);
-//   // writeLog(`test`, { level: "info", stdout: true });
-// });
-import pino from "pino";
+createLogger().then((logger) => {
+  logger.info(`test1`);
+  writeLog(`test2`, { level: "warn", stdout: true });
+});
+// import pino from "pino";
 
-const logger = pino();
+// const logger = pino();
 
-logger.info("test");
+// logger.info("test");
