@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v3.0.0-beta02](https://github.com/saostad/fast-node-logger/compare/v3.0.0-beta01...v3.0.0-beta02)
+
+> 19 July 2022
+
+- fix: pino-pretty config [`1afa4ae`](https://github.com/saostad/fast-node-logger/commit/1afa4aed95a929b101ad42af2ac02b6c98f98dd5)
+- doc: change log [`b633596`](https://github.com/saostad/fast-node-logger/commit/b633596f6a3515ff5e4d82a838cd1eee3278ea0f)
+
 #### [v3.0.0-beta01](https://github.com/saostad/fast-node-logger/compare/v2.0.2...v3.0.0-beta01)
 
 > 19 July 2022
