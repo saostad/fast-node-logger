@@ -49,7 +49,15 @@ export async function createLogger(options?: Options): Promise<Logger> {
     console.log(`File: index.ts,`, `Line: 49 => `, `sonic is ready`);
 
     logToFile = pino(
-      { ...options, prettyPrint: { colorize: false } } ?? {},
+      {
+        ...options,
+        transport: {
+          target: "pino-pretty",
+          options: {
+            colorize: true,
+          },
+        },
+      } ?? {},
       dest,
     );
     logToConsole = pino({
