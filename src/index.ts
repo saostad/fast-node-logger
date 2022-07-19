@@ -20,8 +20,6 @@ export interface Options extends pino.LoggerOptions {
   logDir?: string;
   /** number of milliseconds - default 604800000 for 7 days */
   retentionTime?: number;
-  /** prettify config for console output */
-  prettyPrint?: pino.PrettyOptions;
 }
 
 /** @returns a previously instantiated instance of Pino that logs to an automatically generated file in logs folder in root directory */
@@ -43,25 +41,24 @@ export async function createLogger(options?: Options): Promise<Logger> {
     },
   });
 
-  const dest = pino.destination(filePath);
-
   logToFile = pino(
     {
       ...options,
-      transport: {
-        target: "pino-pretty",
-        options: {
-          colorize: true,
-        },
-      },
-    } ?? {},
-    dest,
+      level: "trace",
+    },
+    pino.destination(filePath),
   );
   logToConsole = pino({
     ...options,
+    transport: {
+      target: "pino-pretty",
+      options: {
+        colorize: true,
+      },
+    },
   });
 
-  logToConsole.info(`Logging to file: ${filePath}`);
+  console.info(`Logging to file: ${filePath}`);
   return logToFile;
 }
 

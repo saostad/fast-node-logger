@@ -1,6 +1,6 @@
 import { writeLog, createLogger } from "./index";
 
-createLogger().then((logger) => {
+createLogger({ level: "trace" }).then((logger) => {
   logger.info(`test1`);
   writeLog(`test2`, { level: "warn", stdout: true });
 });
