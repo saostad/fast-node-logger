@@ -10,10 +10,10 @@ export async function createDirectoryIfNotExist(
   const mkdir = promisify(fs.mkdir);
   const stat = promisify(fs.stat);
 
-  await stat(directory).catch(async err => {
+  await stat(directory).catch(async (err) => {
     if (err && err.errno === -4058) {
       //Create the directory, call the callback.
-      await mkdir(directory);
+      await mkdir(directory, { recursive: true });
       return true;
     } else {
       //just in case there was a different error:
@@ -44,7 +44,7 @@ export const deleteOldFiles = ({ dirPath, options }: DeleteOldFilesFn) => {
     console.log(`deleting old files from folder: ${pathToDelete}`);
     fs.readdir(pathToDelete, (err1, files) => {
       if (!err1) {
-        files.forEach(file => {
+        files.forEach((file) => {
           if (
             (options && options.keepMetaFiles && file === ".empty") ||
             file === ".Readme.md" ||
