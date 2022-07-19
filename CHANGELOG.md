@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v3.0.0](https://github.com/saostad/fast-node-logger/compare/v3.0.0-beta05...v3.0.0)
+
+> 19 July 2022
+
+- pub: v3 [`d0c9cc4`](https://github.com/saostad/fast-node-logger/commit/d0c9cc422e75b725fa44a51f5c60926843d10a14)
+- doc: change log [`602207d`](https://github.com/saostad/fast-node-logger/commit/602207da71a37689468a7304c9d2da6552f134f7)
+
 #### [v3.0.0-beta05](https://github.com/saostad/fast-node-logger/compare/v3.0.0-beta04...v3.0.0-beta05)
 
 > 19 July 2022
