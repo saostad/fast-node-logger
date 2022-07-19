@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v2.0.2](https://github.com/saostad/fast-node-logger/compare/v2.0.1...v2.0.2)
+
+> 19 July 2022
+
+- pkg: removed depricated package [`c2fed91`](https://github.com/saostad/fast-node-logger/commit/c2fed91d32f2d2b91584736d5bb27cc662054054)
+- doc: change log [`00b4725`](https://github.com/saostad/fast-node-logger/commit/00b47254a047e106d9cc159214554b4e8aab0ddd)
+
 #### [v2.0.1](https://github.com/saostad/fast-node-logger/compare/v2.0.0...v2.0.1)
 
 > 19 July 2022
