@@ -33,6 +33,10 @@ export async function createLogger(options?: Options): Promise<Logger> {
     throw new Error("Logs Folder not Exist");
   });
 
+  // pino prettier can not be used when writing to file
+  const writeToFileOptions = { ...options };
+  delete writeToFileOptions?.transport;
+
   deleteOldFiles({
     dirPath,
     options: {
@@ -43,7 +47,7 @@ export async function createLogger(options?: Options): Promise<Logger> {
 
   logToFile = pino(
     {
-      ...options,
+      ...writeToFileOptions,
       level: "trace",
     },
     pino.destination(filePath),

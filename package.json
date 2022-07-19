@@ -1,6 +1,6 @@
 {
   "name": "fast-node-logger",
-  "version": "3.0.0-beta04",
+  "version": "3.0.0-beta05",
   "description": "fast file logger base on pino",
   "repository": {
     "type": "git",
