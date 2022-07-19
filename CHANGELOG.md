@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v2.0.1](https://github.com/saostad/fast-node-logger/compare/v2.0.0...v2.0.1)
+
+> 19 July 2022
+
+- pkg: updated pino v8 [`51f5fe7`](https://github.com/saostad/fast-node-logger/commit/51f5fe7406a726b7686429b5edce63534a3f0074)
+- doc: change log [`a5bdd56`](https://github.com/saostad/fast-node-logger/commit/a5bdd5608e082be33b05e144fea386585c7a0c23)
+
 ### [v2.0.0](https://github.com/saostad/fast-node-logger/compare/v1.4.13...v2.0.0)
 
 > 24 June 2021
