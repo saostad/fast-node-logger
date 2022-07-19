@@ -1,6 +1,6 @@
 {
   "name": "fast-node-logger",
-  "version": "2.0.2",
+  "version": "3.0.0-beta01",
   "description": "fast file logger base on pino",
   "repository": {
     "type": "git",
@@ -59,6 +59,7 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^2.3.1",
     "ts-jest": "^28.0.7",
+    "ts-node": "^10.9.1",
     "typedoc": "^0.23.8",
     "typescript": "^4.3.4"
   },

@@ -42,30 +42,28 @@ export const deleteOldFiles = ({ dirPath, options }: DeleteOldFilesFn) => {
     const keepAliveTime = options?.keepAliveTime ?? 180000;
 
     console.log(`deleting old files from folder: ${pathToDelete}`);
-    fs.readdir(pathToDelete, (err1, files) => {
-      if (!err1) {
-        files.forEach((file) => {
-          if (
-            (options && options.keepMetaFiles && file === ".empty") ||
-            file === ".Readme.md" ||
-            file === ".README"
-          ) {
-            return;
-          }
-          fs.stat(path.join(pathToDelete, file), (err2, stat) => {
-            if (!err2) {
-              const now = new Date().getTime();
-              const endTime = new Date(stat.ctime).getTime() + keepAliveTime;
+    const files = fs.readdirSync(pathToDelete);
 
-              if (now > endTime) {
-                rimraf(path.join(pathToDelete, file), () => {
-                  null;
-                });
-              }
-            }
-          });
-        });
+    files.forEach((file) => {
+      if (
+        (options && options.keepMetaFiles && file === ".empty") ||
+        file === ".Readme.md" ||
+        file === ".README"
+      ) {
+        return;
       }
+      fs.stat(path.join(pathToDelete, file), (err2, stat) => {
+        if (!err2) {
+          const now = new Date().getTime();
+          const endTime = new Date(stat.ctime).getTime() + keepAliveTime;
+
+          if (now > endTime) {
+            rimraf(path.join(pathToDelete, file), () => {
+              null;
+            });
+          }
+        }
+      });
     });
   } catch (error) {
     console.error(error);

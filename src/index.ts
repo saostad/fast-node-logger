@@ -45,17 +45,24 @@ export async function createLogger(options?: Options): Promise<Logger> {
 
   const dest = pino.destination(filePath);
 
-  logToConsole = pino({
-    ...options,
+  dest.on("ready", () => {
+    console.log(`File: index.ts,`, `Line: 49 => `, `sonic is ready`);
+
+    logToFile = pino(
+      { ...options, prettyPrint: { colorize: false } } ?? {},
+      dest,
+    );
+    logToConsole = pino({
+      ...options,
+    });
+
+    logToConsole.info(`Logging to file: ${filePath}`);
   });
 
-  logToFile = pino(
-    { ...options, prettyPrint: { colorize: false } } ?? {},
-    dest,
-  );
-
-  logToConsole.info(`Logging to file: ${filePath}`);
-  return logToFile;
+  if (logToFile) {
+    return logToFile;
+  }
+  throw new Error("fffff");
 }
 
 interface WriteLogOptions {
@@ -68,21 +75,29 @@ export function writeLog(
   message: any,
   config: WriteLogOptions = { stdout: false, level: defaultLogLevel },
 ): void {
-  if (logToFile) {
-    logToFile[config.level ?? defaultLogLevel](message);
+  try {
+    if (logToFile) {
+      logToFile[config.level ?? defaultLogLevel](message);
 
-    if (config.stdout) {
-      logToConsole?.[config.level ?? defaultLogLevel](message);
+      if (config.stdout) {
+        logToConsole?.[config.level ?? defaultLogLevel](message);
+      }
+    } else {
+      /** fallback to console.log
+       * if:
+       *   - config provided
+       *   - && log level is "info" || "fatal" || "warn" || "error"
+       * else: do nothing
+       */
+      if (
+        config &&
+        config?.level === ("info" || "fatal" || "warn" || "error")
+      ) {
+        console.log(message);
+      }
     }
-  } else {
-    /** fallback to console.log
-     * if:
-     *   - config provided
-     *   - && log level is "info" || "fatal" || "warn" || "error"
-     * else: do nothing
-     */
-    if (config && config?.level === ("info" || "fatal" || "warn" || "error")) {
-      console.log(message);
-    }
+  } catch (error) {
+    console.error(error);
+    throw error;
   }
 }
