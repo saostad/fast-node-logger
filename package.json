@@ -1,6 +1,6 @@
 {
   "name": "fast-node-logger",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "fast file logger base on pino",
   "repository": {
     "type": "git",
@@ -65,7 +65,7 @@
   },
   "dependencies": {
     "pino": "^8.2.0",
-    "pino-pretty": "^8.1.0",
+    "pino-pretty": "^9.0.0",
     "rimraf": "^3.0.2"
   }
 }
