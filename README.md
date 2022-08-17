@@ -1,17 +1,17 @@
-### A very opinionated file logger and rotation, base on [pino](https://www.npmjs.com/package/pino).
+### An opinionated file logger with limited rotation policy options, base on [pino](https://www.npmjs.com/package/pino).
 
 this package provides:
 
-- quick start with default configuration
-- an instance of [pino](https://www.npmjs.com/package/pino) logger
-- most flexibility of pino with options and prettify the output
-- create a new file in `logs` folder of root directory.
-- delete old log files
-- type safe with typescript
+- quick start with default configuration.
+- an instance of [pino](https://www.npmjs.com/package/pino) logger.
+- flexibility of pino with options and prettify the output.
+- create log files in `logs` directory of root project directory.
+- delete old log files.
+- type safe with typescript.
 
 ## Notice:
 
-this is very opinionated package that limit the flexibility of awesome [pino](https://www.npmjs.com/package/pino) package. if you need full functionality please use original package.
+This is an opinionated package that limit the flexibility of awesome [pino](https://www.npmjs.com/package/pino) package. if you need full functionality please use original package.
 
 ## Quick Start
 
@@ -22,11 +22,15 @@ const logger = await createLogger();
 logger.info(`Logger is Ready!`);
 ```
 
+## VSCode extension
+
+You can use the complimentary extension for VSCode [writelog-snippets](https://marketplace.visualstudio.com/items?itemName=saostad.writelog-snippets).
+
 ## Customization
 
 ```js
 const options: Options = {
-  logDir: "./logs",
+  logDir: "./my-logs",
   retentionTime: 604800, // for 7 days
 };
 await createLogger(options);
@@ -43,7 +47,6 @@ import { createLogger, Options } from "fast-node-logger";
 
 const options: Options = {
   level: "trace",
-  prettyPrint: { colorize: true, translateTime: "SYS:standard" },
 };
 
 const logger = await createLogger(options);

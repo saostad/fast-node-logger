@@ -11,23 +11,23 @@
 <div class="tsd-page-title">
 <h2>fast-node-logger</h2></div>
 <div class="tsd-panel tsd-typography">
-<a href="#a-very-opinionated-file-logger-and-rotation-base-on-pino" id="a-very-opinionated-file-logger-and-rotation-base-on-pino" style="color: inherit; text-decoration: none;">
-  <h3>A very opinionated file logger and rotation, base on <a href="https://www.npmjs.com/package/pino">pino</a>.</h3>
+<a href="#an-opinionated-file-logger-with-limited-rotation-policy-options-base-on-pino" id="an-opinionated-file-logger-with-limited-rotation-policy-options-base-on-pino" style="color: inherit; text-decoration: none;">
+  <h3>An opinionated file logger with limited rotation policy options, base on <a href="https://www.npmjs.com/package/pino">pino</a>.</h3>
 </a>
 <p>this package provides:</p>
 <ul>
-<li>quick start with default configuration</li>
-<li>an instance of <a href="https://www.npmjs.com/package/pino">pino</a> logger</li>
-<li>most flexibility of pino with options and prettify the output</li>
-<li>create a new file in <code>logs</code> folder of root directory.</li>
-<li>delete old log files</li>
-<li>type safe with typescript</li>
+<li>quick start with default configuration.</li>
+<li>an instance of <a href="https://www.npmjs.com/package/pino">pino</a> logger.</li>
+<li>flexibility of pino with options and prettify the output.</li>
+<li>create log files in <code>logs</code> directory of root project directory.</li>
+<li>delete old log files.</li>
+<li>type safe with typescript.</li>
 </ul>
 
 <a href="#notice" id="notice" style="color: inherit; text-decoration: none;">
   <h2>Notice:</h2>
 </a>
-<p>this is very opinionated package that limit the flexibility of awesome <a href="https://www.npmjs.com/package/pino">pino</a> package. if you need full functionality please use original package.</p>
+<p>This is an opinionated package that limit the flexibility of awesome <a href="https://www.npmjs.com/package/pino">pino</a> package. if you need full functionality please use original package.</p>
 
 <a href="#quick-start" id="quick-start" style="color: inherit; text-decoration: none;">
   <h2>Quick Start</h2>
@@ -35,10 +35,15 @@
 <pre><code class="language-js"><span class="hl-0">import</span><span class="hl-1"> { </span><span class="hl-2">createLogger</span><span class="hl-1"> } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&quot;fast-node-logger&quot;</span><span class="hl-1">;</span><br/><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">logger</span><span class="hl-1"> = </span><span class="hl-0">await</span><span class="hl-1"> </span><span class="hl-6">createLogger</span><span class="hl-1">();</span><br/><span class="hl-2">logger</span><span class="hl-1">.</span><span class="hl-6">info</span><span class="hl-1">(</span><span class="hl-3">`Logger is Ready!`</span><span class="hl-1">);</span>
 </code></pre>
 
+<a href="#vscode-extension" id="vscode-extension" style="color: inherit; text-decoration: none;">
+  <h2>VSCode extension</h2>
+</a>
+<p>You can use the complimentary extension for VSCode <a href="https://marketplace.visualstudio.com/items?itemName=saostad.writelog-snippets">writelog-snippets</a>.</p>
+
 <a href="#customization" id="customization" style="color: inherit; text-decoration: none;">
   <h2>Customization</h2>
 </a>
-<pre><code class="language-js"><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">options</span><span class="hl-1">: </span><span class="hl-7">Options</span><span class="hl-1"> = {</span><br/><span class="hl-1">  </span><span class="hl-2">logDir:</span><span class="hl-1"> </span><span class="hl-3">&quot;./logs&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-2">retentionTime:</span><span class="hl-1"> </span><span class="hl-8">604800</span><span class="hl-1">, </span><span class="hl-9">// for 7 days</span><br/><span class="hl-1">};</span><br/><span class="hl-0">await</span><span class="hl-1"> </span><span class="hl-6">createLogger</span><span class="hl-1">(</span><span class="hl-2">options</span><span class="hl-1">);</span>
+<pre><code class="language-js"><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">options</span><span class="hl-1">: </span><span class="hl-7">Options</span><span class="hl-1"> = {</span><br/><span class="hl-1">  </span><span class="hl-2">logDir:</span><span class="hl-1"> </span><span class="hl-3">&quot;./my-logs&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-2">retentionTime:</span><span class="hl-1"> </span><span class="hl-8">604800</span><span class="hl-1">, </span><span class="hl-9">// for 7 days</span><br/><span class="hl-1">};</span><br/><span class="hl-0">await</span><span class="hl-1"> </span><span class="hl-6">createLogger</span><span class="hl-1">(</span><span class="hl-2">options</span><span class="hl-1">);</span>
 </code></pre>
 
 <a href="#documentations" id="documentations" style="color: inherit; text-decoration: none;">
@@ -49,7 +54,7 @@
 <a href="#use-pino-original-options-pino-docs" id="use-pino-original-options-pino-docs" style="color: inherit; text-decoration: none;">
   <h3>use pino original options <a href="https://github.com/pinojs/pino/blob/master/docs/api.md#options">Pino Docs</a></h3>
 </a>
-<pre><code class="language-js"><span class="hl-0">import</span><span class="hl-1"> { </span><span class="hl-2">createLogger</span><span class="hl-1">, </span><span class="hl-2">Options</span><span class="hl-1"> } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&quot;fast-node-logger&quot;</span><span class="hl-1">;</span><br/><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">options</span><span class="hl-1">: </span><span class="hl-7">Options</span><span class="hl-1"> = {</span><br/><span class="hl-1">  </span><span class="hl-2">level:</span><span class="hl-1"> </span><span class="hl-3">&quot;trace&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-2">prettyPrint:</span><span class="hl-1"> { </span><span class="hl-2">colorize:</span><span class="hl-1"> </span><span class="hl-4">true</span><span class="hl-1">, </span><span class="hl-2">translateTime:</span><span class="hl-1"> </span><span class="hl-3">&quot;SYS:standard&quot;</span><span class="hl-1"> },</span><br/><span class="hl-1">};</span><br/><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">logger</span><span class="hl-1"> = </span><span class="hl-0">await</span><span class="hl-1"> </span><span class="hl-6">createLogger</span><span class="hl-1">(</span><span class="hl-2">options</span><span class="hl-1">);</span>
+<pre><code class="language-js"><span class="hl-0">import</span><span class="hl-1"> { </span><span class="hl-2">createLogger</span><span class="hl-1">, </span><span class="hl-2">Options</span><span class="hl-1"> } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&quot;fast-node-logger&quot;</span><span class="hl-1">;</span><br/><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">options</span><span class="hl-1">: </span><span class="hl-7">Options</span><span class="hl-1"> = {</span><br/><span class="hl-1">  </span><span class="hl-2">level:</span><span class="hl-1"> </span><span class="hl-3">&quot;trace&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">};</span><br/><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">logger</span><span class="hl-1"> = </span><span class="hl-0">await</span><span class="hl-1"> </span><span class="hl-6">createLogger</span><span class="hl-1">(</span><span class="hl-2">options</span><span class="hl-1">);</span>
 </code></pre>
 
 <a href="#createloggeroptions" id="createloggeroptions" style="color: inherit; text-decoration: none;">
